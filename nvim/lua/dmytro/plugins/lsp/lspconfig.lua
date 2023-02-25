@@ -64,7 +64,19 @@ typescript.setup({
 	},
 })
 
-local servers = { "jsonls", "yamlls", "sumneko_lua", "cssls", "tailwindcss", "gopls", "dockerls", "html" }
+local servers = {
+	"jsonls",
+	"yamlls",
+	"lua_ls",
+	"cssls",
+	"tailwindcss",
+	"gopls",
+	"dockerls",
+	"html",
+	"pyright",
+	"terraformls",
+	"ansiblels",
+}
 -- configure yamlls server
 for _, server in pairs(servers) do
 	local opts = {

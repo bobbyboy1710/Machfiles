@@ -13,7 +13,7 @@ local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
 -- autocommand that reloads neovim and installs/updates/removes plugins
 -- when file is saved
-vim.cmd([[ 
+vim.cmd([[
   augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
@@ -33,7 +33,11 @@ return packer.startup(function(use)
 
 	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
+	--Colorshemes
 	use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	use("folke/tokyonight.nvim")
+	use("ellisonleao/gruvbox.nvim")
 
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
@@ -102,10 +106,14 @@ return packer.startup(function(use)
 	--Leap
 	use("ggandor/leap.nvim")
 	-- Bufferline
-	use({ "akinsho/bufferline.nvim", tag = "v3.*" })
+	--use({ "akinsho/bufferline.nvim", tag = "v3.*" })
 	-- Golang
 	use("ray-x/go.nvim")
 	use("ray-x/guihua.lua")
+	-- Harpoon
+	use("theprimeagen/harpoon")
+	use("mbbill/undotree")
+	use("tpope/vim-fugitive")
 
 	if packer_bootstrap then
 		require("packer").sync()
